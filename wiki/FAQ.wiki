@@ -1,4 +1,4 @@
-#labels Featured,Phase-QA,Phase-Requirements
+#labels Featured-1,Phase-QA,Phase-Requirements
 #Frequently Asked Technical Questions.
 
 = Technical Questions =
