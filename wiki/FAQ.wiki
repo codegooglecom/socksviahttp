@@ -3,11 +3,11 @@
 
 = Technical Questions =
 
-* How important is the speed lost between a real socks connection and a socks via HTTP connection ?
-* What do I need to use socks via HTTP ?
-* Where can I get Java and a servlet capable Web Server ?
-* I am behind a Microsoft proxy that only allows NTLM authentication. What can I do ?
-* Can I use the source code ?
+ * How important is the speed lost between a real socks connection and a socks via HTTP connection ?
+ * What do I need to use socks via HTTP ?
+ * Where can I get Java and a servlet capable Web Server ?
+ * I am behind a Microsoft proxy that only allows NTLM authentication. What can I do ?
+ * Can I use the source code ?
 
 
 
