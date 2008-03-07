@@ -33,3 +33,30 @@ The part 2b is actually a java servlet (for now). Don't forget that the part 2b 
     # Both Server part and client part on Linux.
     # Both Server part and client part on Windows.
     # Server part 2b on Windows, Client part 2a on Linux.
+(I used Linux as an example but you can use any java capable OS you want).
+
+== IV - Advanced description: ==
+
+===1 - Client part===
+The client part of Socks via HTTP acts as a socks server. Your program (IRC, Telnet or whatever) connects to this socks server, thinking it is speaking with a real socks server.
+
+The socks via HTTP client communicates the socks via HTTP server using HTTP protocol. The HTTP packets are zipped on the fly to speed up network transfer.
+===2 - Server part===
+
+The server parts manages the real connections. As you know, HTTP is a disconnected protocol, ie you create a request, send it, and you got a response.
+
+There is no connection context (I suppose here that the proxy you have to bypass does not support keepalive). As a consequence, the context handling is the job of the Socks via HTTP server part.
+
+The server part manages a HashTable containing all the opened connections. Each connection has an unique id. This id is sended by the Socks via HTTP client part for each request.
+
+== V - Example ==
+
+
+I have a permanent connection at home (xDSL or cable), with Socks via HTTP Server part installed and configured. I have a computer at work, with only HTTP access.
+
+It is 11:00AM, I'm working hard at work, and suddenly I need to download a program, but this program is located on a FTP site, and I have no FTP access...
+
+Without Socks via HTTP, I'll have to wait to be back home to download the program. But with Socks via HTTP, all I have to do is to download the client part from the official Web Site (http://cqs.dyndns.org/socks), and launch it. Then I configure my ftp client (for example CuteFTP) to use a socks server on 127.0.0.1 on port 1080.
+
+Now I can download all the files I need :)
+
