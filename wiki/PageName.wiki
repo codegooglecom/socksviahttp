@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#This program has been written for people having a limited access at work (http access), and who want to use some network services like ftp, irc, telnet.
 
 =  Documentation =
 
@@ -59,4 +59,3 @@ It is 11:00AM, I'm working hard at work, and suddenly I need to download a progr
 Without Socks via HTTP, I'll have to wait to be back home to download the program. But with Socks via HTTP, all I have to do is to download the client part from the official Web Site (http://cqs.dyndns.org/socks), and launch it. Then I configure my ftp client (for example CuteFTP) to use a socks server on 127.0.0.1 on port 1080.
 
 Now I can download all the files I need :)
-
