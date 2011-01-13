@@ -25,6 +25,8 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 package socksviahttp.core.net;
 
 import java.net.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.io.*;
 
 public class Connection
@@ -176,9 +178,26 @@ public class Connection
     if (!connected) return(null);
 
     int len = -1;
+    int all_len = 0;
+    List<byte[]> tmp_data_list = new ArrayList<byte[]>();
+    
     try
     {
-      len = m_bufferedinputstream.read(m_buffer, 0, BUFFER_SIZE);
+      
+      //System.out.println("len :" + len);
+      while((len = m_bufferedinputstream.read(m_buffer, 0, BUFFER_SIZE)) !=-1){
+    	  
+    	  	byte[] tmp_data = new byte[len];
+    	    for (int i = 0; i < len; i++) {
+    	    	tmp_data[i] = m_buffer[i];
+    	    }
+    	    tmp_data_list.add(tmp_data);
+    	    all_len +=len;	
+    	   // System.out.println("len = " + len);
+    	  
+      }
+      
+      
     }
     catch (InterruptedIOException e)
     {
@@ -192,8 +211,20 @@ public class Connection
       return(null);
     }
 
-    byte[] ret = new byte[len];
-    for (int i = 0; i < len; i++) ret[i] = m_buffer[i];
+//    byte[] ret = new byte[len];
+//    for (int i = 0; i < len; i++) ret[i] = m_buffer[i];
+    byte [] ret = new byte[all_len];
+   // System.out.println("all_len = " + all_len);
+    int j = 0 ;
+    for(byte [] tmp_data:tmp_data_list){
+    	for (int i = 0; i < tmp_data.length; i++){
+    		ret[j] = tmp_data[i];
+    		j++;
+    		
+    	}
+    }
+    
+    
     return(ret);
   }
 
